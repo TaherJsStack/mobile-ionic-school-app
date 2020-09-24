@@ -1,0 +1,83 @@
+<ion-content class="spinner" *ngIf="spinner">
+  <ion-spinner name="circles"></ion-spinner>
+</ion-content>
+<ion-content *ngIf="!spinner"
+[scrollEvents]="true"
+(ionScrollStart)="logScrollStart($event)"
+(ionScroll)="logScrolling($event)"
+(ionScrollEnd)="logScrollEnd($event)">
+
+  <!-- <div *ngIf="spinner" style="background-color: black; margin: auto; width: 50px; color: black; position: fixed; top: 50px;">
+    <ion-spinner name="circles" style="font-size: 5rem; background-color: black; margin: auto; width: 50px; color: black;"></ion-spinner>
+  </div>
+  <ion-spinner name="circles" *ngIf=!spinner"></ion-spinner>
+  -->
+
+    <div class="head" *ngIf="!spinner">
+      <ion-grid>
+        <ion-row>
+          <ion-col>
+            
+            <button mat-button color="primary" (click)="onLogout()">
+              <ion-icon name="power-outline"></ion-icon>
+            </button>
+            
+            <button mat-button color="accent" class="translate" (click)="presentPopover($event)">
+              <ion-icon name="language-outline"></ion-icon>
+            </button>
+
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+
+      <div class="head-info">
+        <div class="avatar-img">
+          <img [src]="userData?.imageUrl">
+        </div>
+        <div class="user-data">
+          <h2>{{ userData?.name.firstname }} {{ userData?.name.lastname }}</h2>
+          <h5>0{{ userData?.phone }}</h5>
+        </div>
+      </div>
+    
+    </div>
+
+    <div class="body" *ngIf="!spinner">
+
+      <ion-grid>
+        <ion-row>
+          <ion-col>
+            <button mat-button color="primary">
+              <i class="material-icons"> place </i>
+            </button>
+            <button mat-button style="position: absolute; right: 0;">
+              {{ 'childs' | translate }} <i class="material-icons"> people_alt </i> {{ userData?.childes.length }}
+            </button>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+
+      <ion-card *ngFor="let child of childes" [routerLink]="['/tabs/tabs/childes', child._id ]">
+        <ion-grid>
+          <ion-row>
+            <ion-col size="3" *ngIf="child?.imageUrl"> <img ng-show="assets/download.png"  src="{{ child?.imageUrl }}">  </ion-col>
+            <ion-col size="3" *ngIf="!child?.imageUrl"> <img src="assets/download.png">  </ion-col>
+            <ion-col size="8"> 
+              <p class="studentName" style="color: black; text-align: center;"> 
+                {{ child?.name.firstname }} {{ child?.name.lastname }} 
+              </p> 
+              <ion-label> <p>Stage</p> <span>{{ child?.educationalStage }}</span> </ion-label>
+              <ion-label> <p>level</p> <span>{{ child?.level }}</span> </ion-label>
+              <ion-label> <p>email</p> <span>{{ child?.email }}</span> </ion-label>
+            </ion-col>
+          </ion-row>
+        </ion-grid>
+      </ion-card>
+      <br>
+      <br>
+    
+    </div>
+
+
+ 
+</ion-content>

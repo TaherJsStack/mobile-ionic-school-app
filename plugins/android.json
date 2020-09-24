@@ -1,0 +1,45 @@
+{
+  "prepare_queue": {
+    "installed": [],
+    "uninstalled": []
+  },
+  "config_munge": {
+    "files": {}
+  },
+  "installed_plugins": {
+    "cordova-plugin-device": {
+      "PACKAGE_NAME": "io.ionic.school"
+    },
+    "cordova-plugin-ionic-keyboard": {
+      "PACKAGE_NAME": "io.ionic.school"
+    },
+    "cordova-plugin-ionic-webview": {
+      "ANDROID_SUPPORT_ANNOTATIONS_VERSION": "27.+",
+      "PACKAGE_NAME": "io.ionic.school"
+    },
+    "cordova-plugin-network-information": {
+      "PACKAGE_NAME": "io.ionic.school"
+    },
+    "cordova-plugin-splashscreen": {
+      "PACKAGE_NAME": "io.ionic.school"
+    },
+    "cordova-plugin-statusbar": {
+      "PACKAGE_NAME": "io.ionic.school"
+    },
+    "cordova-plugin-whitelist": {
+      "PACKAGE_NAME": "io.ionic.school"
+    },
+    "cordova-sqlite-storage": {
+      "PACKAGE_NAME": "io.ionic.school"
+    },
+    "cordova-plugin-fcm-with-dependecy-updated": {
+      "FCM_VERSION": "19.0.0",
+      "GRADLE_TOOLS_VERSION": "3.5.3",
+      "GOOGLE_SERVICES_VERSION": "4.3.3",
+      "SUPPORT_LIBRARY_VERSION": "28.0.0",
+      "ANDROID_DEFAULT_NOTIFICATION_ICON": "@mipmap/ic_launcher",
+      "PACKAGE_NAME": "io.ionic.school"
+    }
+  },
+  "dependent_plugins": {}
+}

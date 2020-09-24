@@ -1,0 +1,23 @@
+ion-content{
+  --background: rgb(207,158,152);
+  --background: linear-gradient(180deg, rgba(207,158,152,0.7906512946975666) 0%, rgba(255,189,96,1) 70%);
+  .logo{
+    width: 40%; 
+    margin: auto; 
+    margin-top: 50px;
+  }
+  .login-form{
+    width: 65%; 
+    margin: auto; 
+    margin-top: 20%;
+  }
+  mat-form-field{
+    width: 100%;
+  }
+  form{
+    button{
+      display: block;
+      margin: auto;
+    }
+  }
+}

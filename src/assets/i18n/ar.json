@@ -1,0 +1,61 @@
+{
+  "childs": "الابناء",
+  
+  "HELLO": "hola ar",
+  "navMenu":{  
+    "home": "الرئيسية",
+    "language": "اللغه",
+    "profile": "صفحتى"
+  },
+
+  "sideMenu": {
+    "dashbord":"الرئيسيه",
+    "parents": "الآباء",
+    "addParent":"اضافة ولي امر",
+    "parent":"ولي امر",
+    "students":"الطلاب",
+    "addStudent":"اضافة طالب",
+    "student":"طالب",
+    "teachers":"المعلمون",
+    "addTeacher":"اضافة معلم",
+    "teacher":"معلم",
+    "addClass":"اضافة فصل",
+    "classes":"الفصول",
+    "library":"المكتبه",
+    "notice":"الاشعارات",
+    "notes": "الملاحظات",
+    "payments": "مدفوعات",
+    "addPayment": "اضافة مدفوعات",
+    "employees": "الموظفين",
+    "addEmployee": "اضافة موظف",
+    "exames": "الامتحانات",
+    "final": "نهاية العام",
+    "monthly": "شهري",
+    "attendes": "الحضور",
+    "buss": "باص",
+    "subjects": "المواد",
+    "addbus":"اضافة باص",
+    "allLines": "كل الخطوط",
+    "allAttends": "الحضور"
+  },
+
+  "pages": {
+    "dashbord": "الرئيسيه",
+    "Address": "العنوان",
+    "Email_address": "الايميل",
+    "Mobile": "موبايل",
+    "Bus": "الاتوبيس",
+    "books": "كتب",
+    "school": "المدرسه",
+    "clothes": "الملابس",
+    "New_Users": "مستخدم جديد",
+    "teachers":"المعلمون",
+    "parents": "الآباء",
+    "students":"الطلاب",
+    "employees": "الموظفين"
+  }
+
+
+  
+}
+

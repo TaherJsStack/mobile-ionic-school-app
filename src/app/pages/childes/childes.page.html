@@ -1,0 +1,221 @@
+
+<ion-content class="spinner" *ngIf="spinner">
+  <ion-spinner ></ion-spinner>
+</ion-content>
+
+<ion-content *ngIf="!spinner">
+  
+  <!-- ******************************************************************************************************** -->
+  <div class="back-btn">
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/tabs/tabs/home"></ion-back-button>
+    </ion-buttons>
+  </div>
+  
+    <div class="head">
+      <!-- <div class="head"  [style.background-image]="'url(' + studentData?.student?.imageUrl + ')'" [ngStyle]="{ 'background-image': 'url(' + studentData?.student?.imageUrl + ')'}"> -->
+        <img [src]="studentData?.student?.imageUrl" style="width: 100%;">
+    </div>
+  
+    <div class="stats" >
+      <ion-grid>
+        <ion-row>
+          <ion-col size="4"> 
+            <ion-card> <p>class<br> printers</p> <h6>{{ studentData?.class.students.length }}</h6> </ion-card>
+          </ion-col>
+          <ion-col size="4"> 
+            <ion-card> <p>total<br> exames</p> <h6>{{ studentData?.class.exameDegree.length }}</h6> </ion-card>
+          </ion-col>
+          <ion-col size="4"> 
+            <!-- <ion-card> <p>subjects</p> <h6 *ngIf="studentData">{{ studentData?.class.subjects[0].termSubjects[0].classSubjects.length  +  studentData?.class.subjects[1].termSubjects[0].classSubjects.length }} </h6> </ion-card> -->
+            <ion-card> <p>total<br> subjects</p> <h6>{{ subjectsLenght }} </h6> </ion-card>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+    
+    </div>
+  
+    <div class="body">
+  
+      <ion-card>
+        <mat-accordion>
+          <mat-expansion-panel>
+            <mat-expansion-panel-header>
+              <mat-panel-title>
+                {{ studentData?.student.name.firstname }} {{ studentData?.student.name.lastname }} 
+              </mat-panel-title>
+              <mat-panel-description>
+                child more Info
+              </mat-panel-description>
+            </mat-expansion-panel-header>
+            <ion-label> <p>Stage</p> <span>{{ studentData?.student?.educationalStage }}</span> </ion-label>
+            <ion-label> <p>level</p> <span>{{ studentData?.student?.level }}</span> </ion-label>
+            <ion-label> <p>class</p> <span>{{ studentData?.class?.className }}</span> </ion-label>
+            <ion-label> <p>email</p> <span>{{ studentData?.student?.email }}</span> </ion-label>
+            <br>
+            <div class="">
+            <ion-label> <p>address</p> <span>{{ studentData?.student?.address.country }} /
+                                             {{ studentData?.student?.address.city }}    /
+                                             {{ studentData?.student?.address.street }} </span> </ion-label>
+            <ion-label> <p>cardId</p> <span>{{ studentData?.student?.cardId }}</span> </ion-label>
+            <ion-label> <p>phone</p> <span>{{ studentData?.student?.phone }}</span> </ion-label>
+            <ion-label> <p>activeAccount</p> <span>{{ studentData?.student?.activeAccount }}</span> </ion-label>
+            <ion-label> <p>note</p> <span>{{ studentData?.student?.notes }}</span> </ion-label>
+            </div>
+          </mat-expansion-panel>
+        </mat-accordion>
+      </ion-card>    
+  
+      <!-- subjects info -->
+      <ion-card>
+        <ion-card-header>
+          <ion-card-subtitle>subjects </ion-card-subtitle>
+          <!-- <ion-card-title> subjects </ion-card-title>-->
+                  <!-- Segment with anchors -->
+          <ion-segment (ionChange)="segmentChanged($event)">
+            <ion-segment-button  value="first term">
+              <ion-label>first term</ion-label>
+            </ion-segment-button>
+            <ion-segment-button  value="second term">
+              <ion-label>second term</ion-label>
+            </ion-segment-button>
+          </ion-segment>
+        </ion-card-header>
+        <!-- <ion-card-content> -->
+  
+          <!-- //////////////////////////////////////////////////////////////////////////////////////////////// -->
+          <table mat-table [dataSource]="dataSource" class="mat-elevation-z8" >
+  
+            <!--- Note that these columns can be defined in any order.
+                  The actual rendered columns are set as a property on the row definition" -->
+          
+            <!-- Position Column -->
+            <ng-container matColumnDef="position">
+              <th mat-header-cell *matHeaderCellDef> No. </th>
+              <td mat-cell *matCellDef="let element = index"> {{element + 1}} </td>
+            </ng-container>
+          
+            <!-- Name Column -->
+            <ng-container matColumnDef="name">
+              <th mat-header-cell *matHeaderCellDef> Name </th>
+              <td mat-cell *matCellDef="let element"> {{element.subjectName}} </td>
+            </ng-container>
+          
+            <!-- Weight Column -->
+            <ng-container matColumnDef="teacher">
+              <th mat-header-cell *matHeaderCellDef> teacher </th>
+              <td mat-cell *matCellDef="let element"> {{element.teacher.name.firstname}} {{element.teacher.name.lastname}} </td>
+            </ng-container>
+          
+            <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+            <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+          </table>
+  
+        <!-- </ion-card-content> -->
+      </ion-card>
+  
+      <!-- class attend info -->
+      <ion-card>
+        <ion-card-header class="padding">
+          <ion-card-subtitle>{{ classAttend?.length }} day attended </ion-card-subtitle>
+          <ion-card-title> class attend </ion-card-title>
+        </ion-card-header>
+        <!-- <ion-card-content> -->
+          <mat-accordion *ngFor="let month of classAllMonth " style="margin-bottom: 5px !important">
+            
+            <mat-expansion-panel style="margin-bottom: 4px;">
+              <mat-expansion-panel-header>
+                <mat-panel-title>
+                  {{ month }} 
+                </mat-panel-title>
+              </mat-expansion-panel-header>
+  
+              <div *ngFor="let day of classTimesData">
+                <ion-label *ngIf="day.month == month "> <p>{{ day.month }}</p> <span> {{ day.day }} </span> </ion-label>
+              </div>
+            </mat-expansion-panel>
+          </mat-accordion>
+  
+          <!-- <ion-label> <p>Stage</p> <span>{{ studentData?.student?.educationalStage }}</span> </ion-label>
+          <ul *ngFor="let month of classAllMonth ">
+            <li>{{ month }} =></li>
+          <ul *ngFor="let day of classTimesData"><li *ngIf="day.month == month ">{{ day.day }}</li></ul> 
+  
+          </ul> -->
+  
+          <!-- <br> -->
+        <!-- </ion-card-content> -->
+      </ion-card>
+      
+      <!-- bus attend info -->
+      <ion-card>
+        <ion-card-header class="padding">
+          <ion-card-subtitle>{{ busAttend?.length }} day attended </ion-card-subtitle>
+          <ion-card-title> bus attend </ion-card-title>
+        </ion-card-header>
+        <!-- <ion-card-content> -->
+          <mat-accordion *ngFor="let month of busAllMonth " style="margin-bottom: 5px !important">
+            
+            <mat-expansion-panel style="margin-bottom: 4px;">
+              <mat-expansion-panel-header>
+                <mat-panel-title>
+                  {{ month }} 
+                </mat-panel-title>
+              </mat-expansion-panel-header>
+  
+              <div *ngFor="let day of busTimesData">
+                <ion-label *ngIf="day.month == month "> 
+                  <p>{{ day.month }}</p> <span> {{ day.day }} </span> 
+                </ion-label>
+              </div>
+            </mat-expansion-panel>
+          </mat-accordion>
+  
+          <!-- <ion-label> <p>Stage</p> <span>{{ studentData?.student?.educationalStage }}</span> </ion-label>
+          <ul *ngFor="let month of classAllMonth ">
+            <li>{{ month }} =></li>
+          <ul *ngFor="let day of classTimesData"><li *ngIf="day.month == month ">{{ day.day }}</li></ul> 
+  
+          </ul> -->
+  
+          <!-- <br> -->
+        <!-- </ion-card-content> -->
+      </ion-card>
+  
+      <!-- class info -->
+      <ion-card>
+        <!-- <canvas baseChart 
+        [datasets]="chartData" 
+        [labels]="chartLabels" 
+        [options]="chartOptions" 
+        [colors]="chartColors"
+        [legend]="showLegend" 
+        [chartType]="chartType">
+        </canvas> -->
+        
+        <!-- <ion-card>
+          <ion-card-header>
+            <ion-card-title>Settings</ion-card-title>
+          </ion-card-header>
+          <ion-card-content>
+            <ion-item>
+              <ion-label>Line chart?</ion-label>
+              <ion-toggle (ionChange)="typeChanged($event)" checked></ion-toggle>
+            </ion-item>
+            <ion-item>
+              <ion-label>Show legend?</ion-label>
+              <ion-toggle [(ngModel)]="showLegend"></ion-toggle>
+            </ion-item>
+            <ion-item>
+              <ion-label>Background color</ion-label>
+              <ion-input type="text" [(ngModel)]="chartColors[0].backgroundColor"></ion-input>
+            </ion-item>
+          </ion-card-content>
+        </ion-card> -->
+      
+      </ion-card>
+  
+    </div>
+  
+  </ion-content>
+  

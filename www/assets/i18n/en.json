@@ -1,0 +1,62 @@
+{
+  
+  "childs": "childs",
+  
+  "HELLO": "hola en",
+
+    "navMenu":{  
+      "home": "homeeee",
+      "language": "language",
+      "profile": "profile"
+    },
+  
+    "sideMenu": {
+      "dashbord":"dashbord",
+      "parents": "parents",
+      "addParent":"add Parent",
+      "parent":"parent",
+      "students":"students",
+      "addStudent":"add Student",
+      "student":"student",
+      "teachers":"teachers",
+      "addTeacher":"add Teacher",
+      "teacher":"teacher",
+      "addClass":"add Class",
+      "classes":"classes",
+      "library":"library",
+      "notice":"notifications",
+      "notes": "notes",
+      "payments": "payments",
+      "addPayment": "add Payment",
+      "employees": "employees",
+      "addEmployee": "add Employee",
+      "exames": "exames",
+      "final": "final",
+      "monthly": "monthly",
+      "attendes": "attendes",
+      "buss": "bus",
+      "subjects": "subjects",
+      "addbus":"add bus",
+      "allLines": "all Lines",
+      "allAttends": "allAttends"
+
+    },
+    "pages": {
+      "parents": "parents",
+      "dashbord": "Dashbord",
+      "Address": "Address",
+      "Email_address": "Email address",
+      "Mobile": "Mobile",
+      "Bus": "Bus",
+      "books": "books",
+      "school": "school",
+      "clothes": "clothes",
+      "New_Users": "New Users",
+      "parent":"parent",
+      "students":"students",
+      "employees": "employees",
+      "teachers":"teachers"
+    }
+  
+  }
+  

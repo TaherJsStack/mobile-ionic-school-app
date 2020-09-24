@@ -1,0 +1,42 @@
+<ion-content>
+
+  <div class="logo">
+    <img src="assets/logo.png">
+  </div>
+
+  <div class="login-form">
+    <form (ngSubmit)="onLogin()" [formGroup]="loginForm">
+      <ion-text color="success" *ngIf="sucMeseage" >
+        {{ sucMeseage }}
+      </ion-text>
+      <mat-error *ngIf="errMessage">{{ errMessage }}</mat-error>
+      <mat-form-field>
+        <mat-label>Email</mat-label>
+        <input 
+          email 
+          #email 
+          matInput
+          (blur)="onCheckEmail(email.value)"
+          formControlName="email" 
+          placeholder="Ex. m@m.m"> 
+        <mat-error *ngIf="loginForm.hasError('email') && loginForm.hasError('required')">
+          Please enter a valid email address
+        </mat-error>
+        <mat-error *ngIf="loginForm.hasError('required')"> Email is <strong>required</strong></mat-error>
+      </mat-form-field>
+      
+      <mat-form-field>
+        <mat-label>password</mat-label>
+        <input matInput
+               ngModel
+               type="password"
+               formControlName="password"
+               placeholder="1900292020">
+      </mat-form-field>
+      <br>
+      <button mat-button color="primary" type="submit">Login</button>
+      <button mat-button color="primary" routerLink="/forgot-password">Forget Password</button>
+    </form>
+  </div>
+
+</ion-content>
